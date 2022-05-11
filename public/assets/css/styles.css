@@ -41,3 +41,65 @@
   display: inline-block;
   margin-left: 10px;
 }
+
+.not-underlined {
+  text-decoration: none;
+}
+
+.main-section {
+  background: url(../images/main-bg.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+/* .is-justified {
+  align-content: center;
+} */
+
+.jumbo {
+  font-size: 95px;
+}
+
+.is-medium {
+  font-size: 35px;
+}
+
+.is-small {
+  font-size: 25px;
+}
+
+.get-started {
+  border: none;
+  box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.box-shaddow {
+  box-shadow: -15px -15px 8px rgba(0, 0, 0, 0.5);
+}
+
+.movie-poster {
+  position: relative;
+  top: 70px;
+  left: -100px;
+  height: 350px;
+}
+
+.album-cover {
+  position: relative;
+  top: -60px;
+  left: 100px;
+  height: 275px;
+}
+
+.game-cover {
+  position: relative;
+  top: -180px;
+  left: 320px;
+  height: 330px;
+}
+
+.logo {
+  height: 70px;
+}
