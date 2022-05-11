@@ -3,17 +3,17 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment, Like } = require('../../models');
 
 // Get all
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   Post.findAll({
-    attributes: ['id', 'title', "content"],
+    attributes: ['id', 'title', 'content'],
     include: [
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ['username'],
+        },
       },
       {
         model: User,
@@ -41,8 +41,8 @@ router.get('/:id', (req, res) => {
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ['username'],
+        },
       },
       {
         model: User,
@@ -78,10 +78,13 @@ router.post('/', (req, res) => {
 });
 
 // like a post
-router.put('/upvote', (req, res) => {
-  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Like, Comment, User })
-    .then(updatedLikeData => res.json(updatedLikeData))
-    .catch(err => {
+router.put('/like', (req, res) => {
+  Post.upvote(
+    { ...req.body, user_id: req.session.user_id },
+    { Like, Comment, User }
+  )
+    .then((updatedLikeData) => res.json(updatedLikeData))
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
@@ -91,22 +94,22 @@ router.put('/upvote', (req, res) => {
 router.put('/:id', (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
     },
     {
       where: {
-        id: req.params.id
-      }
+        id: req.params.id,
+      },
     }
   )
-    .then(postData => {
+    .then((postData) => {
       if (postData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
       res.json(postData);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
@@ -117,17 +120,17 @@ router.delete('/:id', (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
-    .then(postData => {
+    .then((postData) => {
       if (postData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
       res.json(postData);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
