@@ -13,9 +13,31 @@
 .is-titillium-bold {
   font-family: "Titillium Web", sans-serif;
   font-weight: 900;
+  text-decoration: underline;
 }
 
 .is-titillium-reg {
   font-family: "Titillium Web", sans-serif;
   font-weight: 400;
+}
+
+.has-bg-blue {
+  background-color: var(--blue);
+}
+
+.has-bg-pink {
+  background-color: var(--pink);
+}
+
+.has-bg-green {
+  background-color: var(--green);
+}
+
+.has-text-blue {
+  color: var(--blue);
+}
+
+.tab {
+  display: inline-block;
+  margin-left: 10px;
 }

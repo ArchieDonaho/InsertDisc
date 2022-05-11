@@ -16,24 +16,66 @@
     <title>Insert Disc</title>
   </head>
 
-  <body>
+  <body class="m-3">
     <!-- add nav (bg white) -->
-    <nav class="navbar has-background-light">
+    <nav
+      class="navbar has-background-white"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div class="navbar-brand">
         <!-- include div with company name in Titillium Web Bold, font 15 dark grey and ptag with "music, movies, games" in contrailone, blue, font 8 that has an a tag -->
-        <!-- include div icon with logo, dark grey -->
+        <a href="/" class="navbar-item">
+          <img
+            src="./assets/images/logo-bgwhite.png"
+            alt="Logo half a disk being inserted into the website name 'Insert Disc' with the words 'music, movies, games below in blue"
+          />
+        </a>
       </div>
+      <div class="navbar-menu">
+        <!-- include div for buttons for music (blue), movies (pink), and games (green) all in contrial one text font 11 -->
+        <button
+          class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-blue"
+        >
+          music
+        </button>
+        <button
+          class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-pink"
+        >
+          movies</button
+        ><button
+          class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-green"
+        >
+          games
+        </button>
+      </div>
+      <div class="navbar-item">
+        <!-- include div for text "Explore your favorite media, today." in dark grey or black, Contrail one font, font size 10 next to log in and sign up links (underlined and blue) -->
+        <p class="is-contrail has-text-grey-dark">
+          Explore your favorite media, today.
+          <span class="tab"></span>
+          <a style="text-decoration: underline" class="has-text-blue">
+            log in
+          </a>
 
-      <!-- include div for buttons for music (blue), movies (pink), and games (green) all in contrial one text font 11 -->
-      <!-- include div for text "Explore your favorite media, today." in dark grey or black, Contrail one font, font size 10 next to log in and sign up links (underlined and blue) -->
+          <span class="tab"></span>
+          <a style="text-decoration: underline" class="has-text-blue"
+            >sign up</a
+          >
+        </p>
+      </div>
     </nav>
 
-    <!-- add main section (bg is color gradient img)-->
-    <!-- include div with h tags for "Explore Share Connect", each word on a different line and all white, font Titilium Web Bold size 42-->
-    <!-- include smaller h tag for finishing tag line "with thousands of movies, video games, and friends" in contrail one font size 14" -->
-    <!-- indlude div with p tag, Titillium Web regular, size 12, for website purpose "Explore new and old favorites, share your thoughts and insights, and connected with other fans across the world. Select a media to explore and view existing posts, or get started for free today to share your own thoughts and engage with others'." -->
-    <!-- include button in same div as p tag " GET STARTED " all caps, contrial one font size 15-->
-    <!-- include div tag for pictures of cover art from one movie, album, and video game, shaddowbox upper left for both, transparency at 50%, color black, 90% angle, blur radius -->
+    <section class="section is-medium">
+      <!-- add main section (bg is color gradient img)-->
+      <!-- include div with h tags for "Explore Share Connect", each word on a different line and all white, font Titilium Web Bold size 42-->
+      <!-- include smaller h tag for finishing tag line "with thousands of movies, video games, and friends" in contrail one font size 14" -->
+      <!-- indlude div with p tag, Titillium Web regular, size 12, for website purpose "Explore new and old favorites, share your thoughts and insights, and connected with other fans across the world. Select a media to explore and view existing posts, or get started for free today to share your own thoughts and engage with others'." -->
+      <!-- include button in same div as p tag " GET STARTED " all caps, contrial one font size 15-->
+      <!-- include div tag for pictures of cover art from one movie, album, and video game, shaddowbox upper left for both, transparency at 50%, color black, 90% angle, blur radius -->
+    </section>
+
+    
 
     <!-- add footer (bg white)-->
     <!-- include div with github logo that links to the project repository with an a tag -->
