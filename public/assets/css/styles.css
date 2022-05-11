@@ -1,1 +1,21 @@
 /* TODO */
+:root {
+  --blue: #3d85c6;
+  --pink: #ce0ace;
+  --green: #3fc20e;
+  --dark-grey: #595959;
+}
+
+.is-contrail {
+  font-family: "Contrail One", cursive;
+}
+
+.is-titillium-bold {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 900;
+}
+
+.is-titillium-reg {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+}
