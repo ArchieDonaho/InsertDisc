@@ -44,6 +44,10 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    catagory: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
