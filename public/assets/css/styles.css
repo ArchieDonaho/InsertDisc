@@ -1,1 +1,109 @@
 /* TODO */
+:root {
+  --blue: #3d85c6;
+  --pink: #ce0ace;
+  --green: #3fc20e;
+  --dark-grey: #595959;
+}
+
+.is-contrail {
+  font-family: "Contrail One", cursive;
+}
+
+.is-titillium-bold {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.is-titillium-reg {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+}
+
+.has-bg-blue {
+  background-color: var(--blue);
+}
+
+.has-bg-pink {
+  background-color: var(--pink);
+}
+
+.has-bg-green {
+  background-color: var(--green);
+}
+
+.has-text-blue {
+  color: var(--blue);
+}
+
+.tab {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.not-underlined {
+  text-decoration: none;
+}
+
+.main-section {
+  background: url(../images/main-bg.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+/* .is-justified {
+  align-content: center;
+} */
+
+.jumbo {
+  font-size: 90px;
+}
+
+.is-medium {
+  font-size: 35px;
+}
+
+.is-small {
+  font-size: 25px;
+}
+
+.get-started {
+  border: none;
+  box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.box-shaddow {
+  box-shadow: -15px -15px 8px rgba(0, 0, 0, 0.5);
+}
+
+.movie-poster {
+  position: relative;
+  top: 70px;
+  left: -100px;
+  height: 350px;
+}
+
+.album-cover {
+  position: relative;
+  top: -60px;
+  left: 100px;
+  height: 275px;
+}
+
+.game-cover {
+  position: relative;
+  top: -180px;
+  left: 320px;
+  height: 330px;
+}
+
+.logo {
+  height: 70px;
+}
+
+.is-right {
+  align-content: right;
+}
