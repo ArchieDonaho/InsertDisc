@@ -113,7 +113,52 @@ router.get('/movies', (req, res) => {
 // Get route for Games category page
 router.get('/games', (req, res) => {
   // will need to add session information as well
-  res.render('games');
+  Post.findAll({
+    where: {
+      content: 'games'
+    },
+    attributes: [
+      'id',
+      'title',
+      'category',
+      'content',
+      'user_id',
+      [
+        sequelize.literal(
+          '(SELECT COUNT(*) FROM like WHERE post.id = like.post_id'
+        ),
+        'like_count'
+      ]
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: [
+          'id',
+          'content',
+          'user_id',
+          'post_id'
+        ],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+  .then(postData => {
+    const posts = postData.map(post => post.get({ plain: true }));
+
+    res.render('games', { posts });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;
