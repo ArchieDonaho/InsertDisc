@@ -59,7 +59,7 @@
 } */
 
 .jumbo {
-  font-size: 95px;
+  font-size: 90px;
 }
 
 .is-medium {
@@ -102,4 +102,8 @@
 
 .logo {
   height: 70px;
+}
+
+.is-right {
+  align-content: right;
 }
