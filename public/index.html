@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Titillium+Web:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Insert Disc</title>
+  </head>
+
+  <body>
+    <!-- add nav (bg white) -->
+    <nav
+      class="navbar has-background-white columns pl-5 pr-4 pt-4 ml-3"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand column is-1 pl-0">
+        <!-- include div with company name in Titillium Web Bold, font 15 dark grey and ptag with "music, movies, games" in contrailone, blue, font 8 that has an a tag -->
+        <a
+          href="/"
+          class="navbar-item p-0 column not-underlined has-text-right"
+        >
+          <h1 class="is-titillium-bold is-size-4 not-underlined has-text-grey">
+            Insert Disc
+          </h1>
+          <p class="is-contrail has-text-blue is-size-7">
+            music, movies, games
+          </p>
+        </a>
+      </div>
+
+      <div>
+        <img
+          class="logo pt-3"
+          src="./assets/images/disc-icon.png"
+          alt="A picture of the Insert Disc logo: a disc that is half visible as it enters into an unseen reader"
+        />
+      </div>
+      <div class="navbar-menu column is-justified pl-6">
+        <!-- include div for buttons for music (blue), movies (pink), and games (green) all in contrial one text font 11 -->
+        <button
+          class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-blue is-justified"
+        >
+          music
+        </button>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        <button
+          class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-pink is-justified"
+        >
+          movies
+        </button>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        <button
+          class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-green is-justified"
+        >
+          games
+        </button>
+      </div>
+
+      <div class="navbar-item column is-flex is-right">
+        <!-- include div for text "Explore your favorite media, today." in dark grey or black, Contrail one font, font size 10 next to log in and sign up links (underlined and blue) -->
+        <p
+          class="is-contrail is-size-6 has-text-grey-dark"
+          style="margin-left: 50%"
+        >
+          Explore your favorite media, today.
+          <span class="tab"></span>
+          <a class="has-text-blue is-underlined"> log in </a>
+
+          <span class="tab"></span>
+          <a class="has-text-blue is-underlined">sign up</a>
+        </p>
+      </div>
+    </nav>
+
+    <!-- add main section (bg is color gradient img)-->
+    <section class="section is-medium main-section p-3 columns">
+      <!-- include div with h tags for "Explore Share Connect", each word on a different line and all white, font Titilium Web Bold size 42-->
+      <div class="p-3 pl-6 column is-three-fifths">
+        <p class="is-titillium-bold has-text-white not-underlined jumbo">
+          Explore
+        </p>
+        <p class="is-titillium-bold has-text-white not-underlined jumbo">
+          Share
+        </p>
+        <p class="is-titillium-bold has-text-white not-underlined jumbo">
+          Connect
+        </p>
+        <!-- include smaller h tag for finishing tag line "with thousands of movies, video games, and friends" in contrail one font size 14" -->
+        <p class="not-underlined is-contrail has-text-white is-medium">
+          with thousands of albums, movies, video games, and friends.
+        </p>
+        <!-- indlude div with p tag, Titillium Web regular, size 12, for website purpose "Explore new and old favorites, share your thoughts and insights, and connected with other fans across the world. Select a media to explore and view existing posts, or get started for free today to share your own thoughts and engage with others'." -->
+        <p class="is-titillium-reg has-text-blue is-small pb-3">
+          Explore new and old favorites, share your thoughts and insights, and
+          connected with other fans across the world. Select a media to explore
+          and view existing posts, or get started for free today to share your
+          own thoughts and engage with others'.
+        </p>
+        <!-- include button in same div as p tag " GET STARTED " all caps, contrial one font size 15-->
+
+        <button
+          class="button has-bg-blue is-contrail is-large is-responsive has-text-white get-started"
+        >
+          GET STARTED
+        </button>
+      </div>
+      <!-- include div tag for pictures of cover art from one movie, album, and video game, shaddowbox upper left for both, transparency at 50%, color black, 90% angle, blur radius -->
+      <div>
+        <img
+          src="./assets/images/Everything_Everywhere_All_at_Once.jpeg"
+          alt=""
+          class="image movie-poster box-shaddow"
+        />
+        <img
+          src="./assets/images/Kendrick_Lamar_-_Damn.png"
+          alt=""
+          class="image album-cover box-shaddow"
+        />
+        <img
+          src="./assets/images/The_Legend_of_Zelda_Breath_of_the_Wild.jpeg"
+          alt=""
+          class="image game-cover box-shaddow"
+        />
+      </div>
+    </section>
+
+    <!-- add footer (bg white)-->
+    <footer class="footer has-background-white columns">
+      <!-- include div with github logo that links to the project repository with an a tag -->
+      <div class="column is-1">
+        <a href="https://github.com/ArchieDonaho/InsertDisc">
+          <img
+            class="image is-64x64 m-0 is-align-content-center"
+            src="./assets/images/github-icon-transparent.png"
+            alt="logo for GitHub, which is a cat silhouette in white, with a black background"
+          />
+        </a>
+      </div>
+      <!-- include p tag with text "Ready to explore?" in contrail one black or dark grey and another link to log in and sign up also contrail one, underlined, and blue -->
+      <div class="column is-vcentered">
+        <p class="is-contrail has-text-grey-dark is-small">
+          Ready to explore?
+          <span class="tab"></span>
+          <a class="has-text-blue is-underlined"> log in </a>
+
+          <span class="tab"></span>
+          <a class="has-text-blue is-underlined">sign up</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="./javascript/script.js"></script>
+  </body>
+</html>
