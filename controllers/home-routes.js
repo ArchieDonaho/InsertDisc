@@ -8,16 +8,22 @@ router.get('/homepage', (req, res) => {
  res.render('homepage');
 });
 
-// Get route for Movie category page
-router.get('/movies', (req, res) => {
-  // will need to add session information as well
-  res.render('movies');
-});
-
 // Get route for Music category page
 router.get('/music', (req, res) => {
   // will need to add session information as well
+  Post.findAll({
+    
+  })
   res.render('music');
+});
+
+// Get route for Movie category page
+router.get('/movies', (req, res) => {
+  // will need to add session information as well
+  Post.findAll({
+
+  })
+  res.render('movies');
 });
 
 // Get route for Games category page
