@@ -145,4 +145,32 @@
 
 .post-columns {
   border: 1px solid var(--purple);
+  border-radius: 5px;
+}
+
+.music-post {
+  border: 2px solid var(--blue);
+  border-radius: 5px;
+}
+
+.music {
+  color: var(--blue);
+}
+
+.movies-post {
+  border: 1px solid var(--pink);
+  border-radius: 5px;
+}
+
+.movies {
+  color: var(--pink);
+}
+
+.games-post {
+  border: 1px solid var(--green);
+  border-radius: 5px;
+}
+
+.games {
+  color: var(--green)
 }
