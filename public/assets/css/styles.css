@@ -16,8 +16,7 @@
 
 .is-titillium-bold {
   font-family: "Titillium Web", sans-serif;
-  font-weight: 900;
-  text-decoration: underline;
+  font-weight: 900
 }
 
 .is-titillium-reg {
@@ -25,16 +24,36 @@
   font-weight: 400;
 }
 
+.has-bg-lb {
+  background-color: var(--light-blue);
+}
+
 .has-bg-blue {
   background-color: var(--blue);
+}
+
+.has-bg-lpk {
+  background-color: var(--light-pink);
 }
 
 .has-bg-pink {
   background-color: var(--pink);
 }
 
+.has-bg-lg {
+  background-color: var(--light-green);
+}
+
 .has-bg-green {
   background-color: var(--green);
+}
+
+.has-bg-lp {
+  background-color: var(--light-purple);
+}
+
+.has-bg-purple {
+  background-color: var(--purple);
 }
 
 .has-text-blue {
@@ -110,4 +129,20 @@
 
 .is-right {
   align-content: right;
+}
+
+.dashboard-post-btn {
+  background-color: white;
+  border: 1px solid var(--purple);
+
+}
+
+.dashboard-post-btn:hover {
+  border: solid 1px var(--purple);
+  background-color: var(--purple);
+  color: white;
+}
+
+.post-columns {
+  border: 1px solid var(--purple);
 }
