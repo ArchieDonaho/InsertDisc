@@ -1,9 +1,13 @@
 /* TODO */
 :root {
+  --light-blue: #88b4fd;
   --blue: #3d85c6;
+  --light-pink: #d36dd3;
   --pink: #ce0ace;
+  --light-green: #7bc07b;
   --green: #3fc20e;
-  --dark-grey: #595959;
+  --light-purple: #b4a7d6;
+  --purple: #9912ff;
 }
 
 .is-contrail {

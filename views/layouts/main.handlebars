@@ -1,26 +1,124 @@
 {{! TODO }}
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='icon' type='image/x-icon' href='assets/images/favicon.ico' />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <link
-      href='https://fonts.googleapis.com/css2?family=Contrail+One&family=Titillium+Web:wght@400;900&display=swap'
-      rel='stylesheet'
+      href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Titillium+Web:wght@400;900&display=swap"
+      rel="stylesheet"
     />
     <link
-      rel='stylesheet'
-      href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    <link rel='stylesheet' href='./assets/css/styles.css' />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>Insert Disc</title>
   </head>
 
   <body>
     {{! add header }}
+    <nav
+      class="navbar has-background-white columns pl-5 pr-4 pt-4 ml-3"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand column is-1 pl-0">
+        <!-- include div with company name in Titillium Web Bold, font 15 dark grey and ptag with "music, movies, games" in contrailone, blue, font 8 that has an a tag -->
+        <a
+          href="/"
+          class="navbar-item p-0 column not-underlined has-text-right"
+        >
+          <h1 class="is-titillium-bold is-size-4 not-underlined has-text-grey">
+            Insert Disc
+          </h1>
+          <p class="is-contrail has-text-blue is-size-7">
+            music, movies, games
+          </p>
+        </a>
+      </div>
+
+      <div>
+        <img
+          class="logo pt-3"
+          src="./assets/images/InsertDiskLogo.png"
+          alt="A picture of the Insert Disc logo: a disc that is half visible as it enters into an unseen reader"
+        />
+      </div>
+      <div class="navbar-menu column is-justified pl-6">
+        <!-- include div for buttons for music (blue), movies (pink), and games (green) all in contrial one text font 11 -->
+        <button
+          class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-blue is-justified"
+        >
+          music
+        </button>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        <button
+          class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-pink is-justified"
+        >
+          movies
+        </button>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        <button
+          class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-green is-justified"
+        >
+          games
+        </button>
+      </div>
+
+      <div class="navbar-item column is-flex is-right">
+        <!-- include div for text "Explore your favorite media, today." in dark grey or black, Contrail one font, font size 10 next to log in and sign up links (underlined and blue) -->
+        <p
+          class="is-contrail is-size-6 has-text-grey-dark"
+          style="margin-left: 50%"
+        >
+          <a href="/" class="has-text-blue is-underlined"> log in </a>
+
+          <span class="tab"></span>
+          <a href="/" class="has-text-blue is-underlined">sign up</a>
+        </p>
+      </div>
+    </nav>
 
     {{! add footer }}
+    <footer class="footer has-background-white columns">
+      <!-- include div with github logo that links to the project repository with an a tag -->
+      <div class="column is-1">
+        <a href="https://github.com/ArchieDonaho/InsertDisc">
+          <img
+            class="image is-64x64"
+            src="./assets/images/github-icon-transparent.png"
+            alt="logo for GitHub, which is a cat silhouette in white, with a black background"
+          />
+        </a>
+      </div>
+      <!-- include p tag with text "Ready to explore?" in contrail one black or dark grey and another link to log in and sign up also contrail one, underlined, and blue -->
+      <div class="column">
+        <p class="is-contrail has-text-grey-dark is-xsmall is-flex">
+          Want to explore even more? Find more projects by the creators of &#160 <span class="has-text-blue has-text-weight-bold"> Insert Disc </span> &#160 here:
+          <span class="tab"></span>
+        </p>
+        <div class="column pl-0">
+          <a href="https://github.com/ArchieDonaho" class="has-text-blue is-titillium-reg not-underlined is-xsmall is-inline"> Archie Donaho </a>
+  
+          <span class="tab"></span>
+          <p class="is-titillium-reg is-xsmall is-inline">|</p>
+          <span class="tab"></span>
+  
+          <a href="https://github.com/allygarcia152" class="has-text-blue is-titillium-reg not-underlined is-xsmall is-inline">Ally Garcia</a>
+  
+          <span class="tab"></span>
+          <p class="is-titillium-reg is-xsmall is-inline">|</p>
+          <span class="tab"></span>
+          
+          <a href="https://github.com/allygarcia152" class="has-text-blue is-titillium-reg not-underlined is-xsmall is-inline">John Pe&#241a</a>
+        </div>
+      </div>
+      
+    </footer>
 
   </body>
 
