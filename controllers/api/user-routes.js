@@ -23,11 +23,11 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'category'],
+        attributes: ['id', 'title', 'content', 'category', 'created_at'],
       },
       {
         model: Comment,
-        attributes: ['id', 'content'],
+        attributes: ['id', 'content', 'created_at'],
         include: {
           model: Post,
           attributes: ['title'],
@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
         model: Post,
         attributes: ['title'],
         through: Like,
-        as: 'liked',
+        as: 'liked_posts',
       },
     ],
   })

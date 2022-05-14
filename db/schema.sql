@@ -1,3 +1,3 @@
-DROP DATABASE IF EXIST insertdisk_db;
+DROP DATABASE IF EXISTS insertdisc_db;
 
-CREATE DATABASE insertdisk_db;
+CREATE DATABASE insertdisc_db;
