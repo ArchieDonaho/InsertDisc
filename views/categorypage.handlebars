@@ -1,7 +1,7 @@
 <section class='section is-medium main-section p-3 has-bg-whitesmoke'>
   <div class='columns is-centered'>
     <div class='column is-10 mt-4'>
-      <button class='button music-post-btn is-xsmall is-inline is-contrail'>
+      <button class='button music-btn is-xsmall is-inline is-contrail'>
         Create a post
       </button>
 
@@ -16,19 +16,20 @@
   <div class='columns is-centered'>
     <div class='column is-10'>
       {{!-- {{posts}}     --}}
-      {{#if music}}
-        <h1>MUSIC SELECTED</h1>
-      {{/if}}
-
-      {{#if movies}}
-        <h1>MOVIES SELECTED </h1>
-      {{/if}}
-
-      {{#if games}}
-        <h1>GAMES SELECTED</h1>
-      {{/if}}
+      <form class='new-post-form'>
+        <div>
+          <label for='title'>Title</label>
+          <input type='text' id='title' name='title' />
+        </div>
+        <div>
+          <label for='content'>Content</label>
+          <input id='content' name='content' />
+        </div>
+        <button type='submit' class='btn'>Create</button>
+      </form>
 
     </div>
   </div>
 
 </section>
+<script src='/javascript/add-post.js'></script>
