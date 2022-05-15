@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Like } = require('../../models');
+const { Post, User, Comment, Likes } = require('../../models');
 
 // Get all
 router.get('/', (req, res) => {
@@ -68,6 +68,8 @@ router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
     content: req.body.content,
+    category: req.body.category,
+    // user_id: req.body.user_id,
     user_id: req.session.user_id,
   })
     .then((postData) => res.json(postData))
@@ -78,10 +80,10 @@ router.post('/', (req, res) => {
 });
 
 // like a post
-router.put('/like', (req, res) => {
-  Post.upvote(
+router.put('/likes', (req, res) => {
+  Post.like(
     { ...req.body, user_id: req.session.user_id },
-    { Like, Comment, User }
+    { Likes, Comment, User }
   )
     .then((updatedLikeData) => res.json(updatedLikeData))
     .catch((err) => {
