@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-//create the like model
-class Like extends Model {}
+//create the likes model
+class Likes extends Model {}
 
-// define like columns
-Like.init(
+// define likes columns
+Likes.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -34,8 +34,8 @@ Like.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'like',
+    modelName: 'likes',
   }
 );
 
-module.exports = Like;
+module.exports = Likes;

@@ -1,19 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, Like, User, Comment } = require('../models');
-
-// Get route for homepage
-router.get('/homepage', (req, res) => {
-  // need to add session login information as well
- res.render('homepage');
-});
+const { Post, User, Comment } = require('../models');
 
 // Get route for Music category page
 router.get('/music', (req, res) => {
-  // will need to add session information as well
   Post.findAll({
     where: {
-      content: 'music'
+      category: 'music',
     },
     attributes: [
       'id',
@@ -21,50 +14,49 @@ router.get('/music', (req, res) => {
       'category',
       'content',
       'user_id',
+      'created_at',
       [
         sequelize.literal(
-          '(SELECT COUNT(*) FROM like WHERE post.id = like.post_id'
+          '(SELECT COUNT(*) FROM Likes WHERE post.id = likes.post_id)'
         ),
-        'like_count'
-      ]
+        'like_count',
+      ],
     ],
     include: [
       {
         model: Comment,
-        attributes: [
-          'id',
-          'content',
-          'user_id',
-          'post_id'
-        ],
+        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ['username'],
+        },
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ['username'],
+      },
+    ],
   })
-  .then(postData => {
-    const posts = postData.map(post => post.get({ plain: true }));
+    .then((postData) => {
+      const posts = postData.map((post) => post.get({ plain: true }));
+      console.log(posts);
 
-    res.render('music', { posts });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+      // create variables to send through for the html to dynamically load
+      const music = 1;
+
+      res.render('categorypage', { posts, music });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // Get route for Movie category page
 router.get('/movies', (req, res) => {
-  // will need to add session information as well
   Post.findAll({
     where: {
-      content: 'movies'
+      category: 'movies',
     },
     attributes: [
       'id',
@@ -72,50 +64,49 @@ router.get('/movies', (req, res) => {
       'category',
       'content',
       'user_id',
+      'created_at',
       [
         sequelize.literal(
-          '(SELECT COUNT(*) FROM like WHERE post.id = like.post_id'
+          '(SELECT COUNT(*) FROM Likes WHERE post.id = likes.post_id)'
         ),
-        'like_count'
-      ]
+        'like_count',
+      ],
     ],
     include: [
       {
         model: Comment,
-        attributes: [
-          'id',
-          'content',
-          'user_id',
-          'post_id'
-        ],
+        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ['username'],
+        },
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ['username'],
+      },
+    ],
   })
-  .then(postData => {
-    const posts = postData.map(post => post.get({ plain: true }));
+    .then((postData) => {
+      const posts = postData.map((post) => post.get({ plain: true }));
+      console.log(posts);
 
-    res.render('movies', { posts });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+      // create variables to send through for the html to dynamically load
+      const movies = 1;
+
+      res.render('categorypage', { posts, movies });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // Get route for Games category page
 router.get('/games', (req, res) => {
-  // will need to add session information as well
   Post.findAll({
     where: {
-      content: 'games'
+      category: 'games',
     },
     attributes: [
       'id',
@@ -123,42 +114,48 @@ router.get('/games', (req, res) => {
       'category',
       'content',
       'user_id',
+      'created_at',
       [
         sequelize.literal(
-          '(SELECT COUNT(*) FROM like WHERE post.id = like.post_id'
+          '(SELECT COUNT(*) FROM Likes WHERE post.id = likes.post_id)'
         ),
-        'like_count'
-      ]
+        'like_count',
+      ],
     ],
     include: [
       {
         model: Comment,
-        attributes: [
-          'id',
-          'content',
-          'user_id',
-          'post_id'
-        ],
+        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ['username'],
+        },
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ['username'],
+      },
+    ],
   })
-  .then(postData => {
-    const posts = postData.map(post => post.get({ plain: true }));
+    .then((postData) => {
+      const posts = postData.map((post) => post.get({ plain: true }));
+      console.log(posts);
 
-    res.render('games', { posts });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+      // create variables to send through for the html to dynamically load
+      const games = 1;
+
+      res.render('categorypage', { posts, games });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// Get route for homepage
+router.get('/', (req, res) => {
+  // need to add session login information as well
+  res.render('homepage');
 });
 
 module.exports = router;
