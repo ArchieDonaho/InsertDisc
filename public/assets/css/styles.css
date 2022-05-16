@@ -171,11 +171,7 @@
 }
 
 .games {
-<<<<<<< HEAD
   color: var(--green);
-}
-=======
-  color: var(--green)
 }
 
 .modal-card {
@@ -183,4 +179,9 @@
   top: 30%;
   left: 30%;
 }
->>>>>>> f615eecae1cd1104bea5925d4b9f9ad60e3dfee7
+
+.sign-in-modal-card {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+}

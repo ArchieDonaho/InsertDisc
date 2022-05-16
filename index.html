@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./public/assets/css/styles.css" />
     <title>Insert Disc</title>
   </head>
 
@@ -41,7 +41,7 @@
       <div>
         <img
           class="logo pt-3"
-          src="./assets/images/InsertDiskLogo.png"
+          src="./public/assets/images/InsertDiskLogo.png"
           alt="A picture of the Insert Disc logo: a disc that is half visible as it enters into an unseen reader"
         />
       </div>
@@ -72,14 +72,11 @@
         <!-- include div for text "Explore your favorite media, today." in dark grey or black, Contrail one font, font size 10 next to log in and sign up links (underlined and blue) -->
         <p
           class="is-contrail is-size-6 has-text-grey-dark"
-          style="margin-left: 50%"
+          style="margin-left: 40%"
         >
           Explore your favorite media, today.
           <span class="tab"></span>
-          <a href="/" class="has-text-blue is-underlined"> log in </a>
-
-          <span class="tab"></span>
-          <a href="/" class="has-text-blue is-underlined">sign up</a>
+          <button class="button dashboard-post-btn is-inline is-contrail js-modal-trigger" data-target="create-post-modal"> LOG IN &#160 or &#160 SIGN UP </button>
         </p>
       </div>
     </nav>
@@ -176,41 +173,68 @@
     </footer>
 
     <!-- modal -->
-    <div id="modal-loggin-signup" class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        <form class='new-post-form'>
-        <div>
-          <label for='title'>Title</label>
-          <input type='text' id='title' name='title' />
+    <div class="modal" id="create-post-modal">
+      <div class="modal-background">
+        <div class="modal-card sign-in-modal-card">
+          <header class="modal-card-head is-contrail is-small has-bg-lp">
+            <p class="modal-card-title has-text-white">
+              Log in or sign up today!
+            </p>
+          </header>
+          <div class="modal-card-body">
+            <form class="new-post-form" id="login-form">
+              <div>
+                <p class="is-contrail is-small">
+                  Already have an accout? Sign in here:
+                </p>
+              </div>
+              <div>
+                <label for="title is-titillium-reg">Username</label>
+                <br>
+                <input type="text" id="login-email" name="title" class="post-columns"/>
+              </div>
+              
+              <div>
+                <label for="content is-titillium-reg">Password</label>
+                <br>
+                <input type="password" class="post-columns" id="login-password" name="content"/>
+              </div>
+              <br>
+              <button type="submit" class="button is-contrail is-responsive has-text-white get-started has-bg-purple">Log In</button>
+            </form>
+            <br>
+            <form class="new-post-form" id="signup-form">
+              <div>
+                <p class="is-contrail is-small">
+                  Don't have an accout? Sign up here:
+                </p>
+              </div>
+              <div>
+                <label for="title is-titillium-reg">Add Your Email</label>
+                <br>
+                <input type="email" id="signup-email" name="title" class="post-columns"/>
+              </div>
+              
+              <div>
+                <label for="title is-titillium-reg">Create a Username</label>
+                <br>
+                <input type="text" id="signup-username" name="title" class="post-columns"/>
+              </div>
+             
+              <div>
+                <label for="content is-titillium-reg">Create a Password</label>
+                <br>
+                <input type="password" class="post-columns" id="signup-password" name="content"/>
+              </div>
+              <br>
+              <button type="submit" class="button has-bg-purple is-contrail is-responsive has-text-white get-started">Sign Up</button>
+            </form>
         </div>
-        <div>
-          <label for='content'>Content</label>
-          <input id='content' name='content' />
-        </div>
-        <button type='submit' class='btn'>Create</button>
-      </form>
-        </div>
-
-        <div class="field">
-          <label class="label">Password</label>
-          <div>
-            <input class="input is-success" type="text" placeholder="Text input" value="bulma">
-            <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-          </div>
-          <p class="help is-success">This username is available</p>
         </div>
       </div>
-      <button class="modal-close is-large" aria-label="close"></button>
-      
     </div>
 
-    <script src="./javascript/script.js"></script>
+    <script src="./public/javascript/homepage.js"></script>
 
   </body>
 </html>
