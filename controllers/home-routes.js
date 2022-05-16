@@ -52,10 +52,11 @@ router.get('/music', (req, res) => {
     });
 });
 
-// Get route for a single post in the music category
+// Get route for a single post in the music
 router.get('/music/post/:id', (req, res) => {
   Post.findOne({
     where: {
+      category: 'music',
       id: req.params.id,
     },
     attributes: [
@@ -88,7 +89,11 @@ router.get('/music/post/:id', (req, res) => {
     ],
   })
     .then((postData) => {
+      if (!postData) {
+        document.location.replace('/music');
+      }
       const post = postData.get({ plain: true });
+      console.log(post);
 
       // create variables to send through for the html to dynamically load
       const music = 1;
