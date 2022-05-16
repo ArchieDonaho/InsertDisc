@@ -18,30 +18,32 @@
     </div>
   </div>
 
-  {{#if posts.length}}
+  
   <div class="columns is-centered">
     <div class="column is-two-fifths post-columns mr-6 has-background-grey-lighter">
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR POSTS
+        {{#if posts.length}}
         {{#each posts as |post|}}
         {{> post-info post}}
-        {{#/each}}
+        {{/each}}
       </p>
-
+      {{/if}}
     </div>
-    {{/if}}
 
-    {{#if comments.length}}
+
     <div class="column is-two-fifths post-columns has-background-grey-lighter">
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR COMMENTS
+        {{#if comments.length}}
         {{#each comments as |comment|}}
         {{> comments comment}}
         {{/each}}
       </p>
-
+      {{/if}}
     </div>
+
   </div>
-  {{/if}}
+
 
 </section>
