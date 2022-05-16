@@ -84,15 +84,32 @@ router.post('/login', (req, res) => {
         .json({ message: 'No user found with that email address!' });
       return;
     }
-
     const validPassword = userData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
-    res.json({ user: userData, message: 'You are now logged in!' });
+    req.session.save(() => {
+      //declare session variables
+      req.session.user_id = userData.id;
+      req.session.username = userData.username;
+      req.session.loggedIn = true;
+
+      res.json({ user: userData, message: 'You are now logged in' });
+    });
   });
+});
+
+// logout the user
+router.post('/logout', withAuth, (req, res) => {
+  //if the loggedIn is set to true, destroy the session
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 // Allows user information to be updated
