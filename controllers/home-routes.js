@@ -44,7 +44,11 @@ router.get('/music', (req, res) => {
       // create variables to send through for the html to dynamically load
       const music = 1;
 
-      res.render('categorypage', { posts, music });
+      res.render('categorypage', {
+        posts,
+        music,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -106,7 +110,11 @@ router.get('/music/post/:id', (req, res) => {
       // create variables to send through for the html to dynamically load
       const music = 1;
 
-      res.render('single-post', { post, music });
+      res.render('single-post', {
+        post,
+        music,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -156,7 +164,11 @@ router.get('/movies', (req, res) => {
       // create variables to send through for the html to dynamically load
       const movies = 1;
 
-      res.render('categorypage', { posts, movies });
+      res.render('categorypage', {
+        posts,
+        movies,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -218,7 +230,11 @@ router.get('/movies/post/:id', (req, res) => {
       // create variables to send through for the html to dynamically load
       const movies = 1;
 
-      res.render('single-post', { post, movies });
+      res.render('single-post', {
+        post,
+        movies,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -268,7 +284,11 @@ router.get('/games', (req, res) => {
       // create variables to send through for the html to dynamically load
       const games = 1;
 
-      res.render('categorypage', { posts, games });
+      res.render('categorypage', {
+        posts,
+        games,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -330,7 +350,11 @@ router.get('/games/post/:id', (req, res) => {
       // create variables to send through for the html to dynamically load
       const games = 1;
 
-      res.render('single-post', { post, games });
+      res.render('single-post', {
+        post,
+        games,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -341,7 +365,7 @@ router.get('/games/post/:id', (req, res) => {
 // Get route for homepage
 router.get('/', (req, res) => {
   // need to add session login information as well
-  res.render('homepage');
+  res.render('homepage', { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
