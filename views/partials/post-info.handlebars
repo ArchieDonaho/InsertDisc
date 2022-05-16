@@ -2,10 +2,11 @@
   <div class='post-title'>
     <a href='/' target='_blank'>
       <p class='is-inline is-titillium-reg is-small movies is-underlined'>
-        {{post.title}}
+        {{title}}
       </p>
       <p class='is-inline is-titillium-reg has-text-grey is-xsmall'>
-        &#160 @username mm/dd/yy
+        &#160 @{{username}}
+        {{created_at}}
       </p>
     </a>
     <span></span>
@@ -13,7 +14,7 @@
 
   <div class='post-content'>
     <p class='is-titillium-reg is-xsmall has-text-black'>
-      Post content goes here!
+      {{content}}
     </p>
   </div>
 
@@ -21,15 +22,23 @@
     <span class='material-symbols-rounded moives'>
       thumb_up
     </span>
-    <p class='is-inline is-titillium-reg is-xsmall'>4</p>
+    <p class='is-inline is-titillium-reg is-xsmall'>{{like_count}}</p>
     |
-    <a href='/post/{{id}}'>
+    <a href='/{{category}}/post/{{id}}'>
       <span class='material-symbols-rounded movies'>
         forum
       </span>
-      <p class='is-inline is-titillium-reg is-xsmall has-text-grey-dark'>174</p>
+      <p
+        class='is-inline is-titillium-reg is-xsmall has-text-grey-dark'
+      >{{comments.length}}</p>
     </a>
-    {{!update to use the pushed application's url name  }}
 
+    {{!update to use the pushed application's url name  }}
+    <a href=''>
+      <img
+        class='image is-24x24 is-inline'
+        src='/assets/Twitter-logo.svg.png'
+      />
+    </a>
   </div>
 </article>

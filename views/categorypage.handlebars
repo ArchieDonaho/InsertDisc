@@ -2,7 +2,7 @@
   <div class='columns is-centered'>
     <div class='column is-10 mt-4'>
       <button class='button music-btn is-xsmall is-inline is-contrail'>
-        Create a post
+        Title
       </button>
 
       <p
@@ -16,20 +16,33 @@
   <div class='columns is-centered'>
     <div class='column is-10'>
       {{!-- {{posts}}     --}}
-
-      <form class='new-post-form'>
-        <div>
-          <label for='title'>Title</label>
-          <input type='text' id='title' name='title' />
+      <div class='modal'>
+        <div class='modal-background'>
+          <div class='modal-content'>
+            <form class='new-post-form'>
+              <div>
+                <label for='title'>Title</label>
+                <input type='text' id='title' name='title' />
+              </div>
+              <div>
+                <label for='content'>Content</label>
+                <input id='content' name='content' />
+              </div>
+              <button type='submit' class='btn'>Create</button>
+            </form>
+          </div>
         </div>
-        <div>
-          <label for='content'>Content</label>
-          <input id='content' name='content' />
-        </div>
-        <button type='submit' class='btn'>Create</button>
-      </form>
+      </div>
 
     </div>
+  </div>
+
+  <div>
+    {{#each posts as |post|}}
+      <ul>
+        {{> post-info post}}
+      </ul>
+    {{/each}}
   </div>
 
 </section>
