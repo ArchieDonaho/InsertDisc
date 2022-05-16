@@ -180,3 +180,9 @@
   top: 30%;
   left: 30%;
 }
+
+.sign-in-modal-card {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+}
