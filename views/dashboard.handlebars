@@ -1,10 +1,6 @@
 <section class="section is-medium main-section p-3 has-background-white">
   <div class="columns is-centered">
     <div class="column is-10 my-3">
-      <button class="button dashboard-post-btn is-xsmall is-inline is-contrail">
-        Create a post
-      </button>
-
       <p
         class="has-bg-purple is-titillium-bold is-small is-inline has-text-black"
       >
@@ -18,22 +14,36 @@
     </div>
   </div>
 
+  
   <div class="columns is-centered">
-    <div class="column is-two-fifths post-columns mr-6 has-background-grey-lighter">
+    <div
+      class="column is-two-fifths post-columns mr-6 has-background-grey-lighter"
+    >
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR POSTS
-        {{posts}}
+      {{#if posts.length}}
+        {{#each posts as |post|}}
+        {{> post-info post}}
+        <button id="post-{{post.id}}" data-id="{{post.id}}">Delete</button>
+        {{/each}}
       </p>
-
+      {{/if}}
     </div>
+
 
     <div class="column is-two-fifths post-columns has-background-grey-lighter">
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR COMMENTS
-        {{comments}}
+        {{#if comments.length}}
+        {{#each comments as |comment|}}
+        {{> comments comment}}
+        {{/each}}
       </p>
-
+      {{/if}}
     </div>
+
   </div>
 
+
 </section>
+<script src="/javascript/delete-post.js"></script>

@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./public/assets/css/styles.css" />
     <title>Insert Disc</title>
   </head>
 
@@ -41,7 +41,7 @@
       <div>
         <img
           class="logo pt-3"
-          src="./assets/images/InsertDiskLogo.png"
+          src="./public/assets/images/InsertDiskLogo.png"
           alt="A picture of the Insert Disc logo: a disc that is half visible as it enters into an unseen reader"
         />
       </div>
@@ -72,14 +72,11 @@
         <!-- include div for text "Explore your favorite media, today." in dark grey or black, Contrail one font, font size 10 next to log in and sign up links (underlined and blue) -->
         <p
           class="is-contrail is-size-6 has-text-grey-dark"
-          style="margin-left: 50%"
+          style="margin-left: 40%"
         >
           Explore your favorite media, today.
           <span class="tab"></span>
-          <a href="/" class="has-text-blue is-underlined"> log in </a>
-
-          <span class="tab"></span>
-          <a href="/" class="has-text-blue is-underlined">sign up</a>
+          <button class="button dashboard-post-btn is-inline is-contrail js-modal-trigger" data-target="create-post-modal"> LOG IN &#160 or &#160 SIGN UP </button>
         </p>
       </div>
     </nav>
@@ -175,6 +172,5 @@
       
     </footer>
 
-    <script src="./javascript/script.js"></script>
   </body>
 </html>

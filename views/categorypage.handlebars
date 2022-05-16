@@ -1,35 +1,91 @@
-<section class='section is-medium main-section p-3 has-bg-whitesmoke'>
-  <div class='columns is-centered'>
-    <div class='column is-10 mt-4'>
-      <button class='button music-btn is-xsmall is-inline is-contrail'>
+<section class="section is-medium p-3 has-bg-whitesmoke">
+  <div class="columns is-centered">
+    <div class="column is-10 mt-4">
+      <button
+        class="button music-post-btn is-xsmall is-inline is-contrail js-modal-trigger"
+        data-target="create-post-modal"
+      >
         Create a post
       </button>
 
+      {{#if music}}
       <p
-        class='has-bg-blue is-titillium-bold is-medium is-inline has-text-black'
+        class="has-bg-blue is-titillium-bold is-medium is-inline has-text-black"
       >
         &#160 MUSIC &#160
       </p>
+      {{/if}}
+
+      {{#if movies}}
+      <p
+        class="has-bg-pink is-titillium-bold is-medium is-inline has-text-black"
+      >
+        &#160 MOVIES &#160
+      </p>
+      {{/if}}
+
+      {{#if games}}
+      <p
+        class="has-bg-green is-titillium-bold is-medium is-inline has-text-black"
+      >
+        &#160 GAMES &#160
+      </p>
+      {{/if}}
     </div>
   </div>
 
-  <div class='columns is-centered'>
-    <div class='column is-10'>
+  <div class="columns is-centered">
+    <div class="column is-10">
       {{!-- {{posts}}     --}}
-      <form class='new-post-form'>
-        <div>
-          <label for='title'>Title</label>
-          <input type='text' id='title' name='title' />
-        </div>
-        <div>
-          <label for='content'>Content</label>
-          <input id='content' name='content' />
-        </div>
-        <button type='submit' class='btn'>Create</button>
-      </form>
 
     </div>
+  </div>
+
+  <div>
+    {{#each posts as |post|}}
+      <ul>
+        {{> post-info post}}
+      </ul>
+    {{/each}}
   </div>
 
 </section>
-<script src='/javascript/add-post.js'></script>
+
+<div class="modal" id="create-post-modal">
+  <div class="modal-background">
+    <div class="modal-card">
+      <header class="modal-card-head is-contrail is-small has-bg-blue">
+        <p class="modal-card-title has-text-white">
+          Create a Post!
+        </p>
+      </header>
+      <div class="modal-card-body">
+        <form class="new-post-form">
+          <div>
+            <label for="title is-titillium-reg">Title</label>
+            <br />
+            <input type="text" id="title" name="title" class="music-post" />
+          </div>
+          <br />
+          <div>
+            <label for="content is-titillium-reg">Content</label>
+            <br />
+            <textarea
+              class="textarea music-post"
+              id="content"
+              name="content"
+              placeholder="What's on your mind?"
+            ></textarea>
+          </div>
+          <br />
+          <button
+            type="submit"
+            class="button has-bg-blue is-contrail is-responsive has-text-white get-started"
+          >Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/javascript/add-post.js"></script>

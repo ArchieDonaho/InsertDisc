@@ -28,7 +28,7 @@
       {{#if music}} has-bg-lb {{/if}} 
       {{#if movies}} has-bg-lpk {{/if}}
       {{#if games}} has-bg-lg {{/if}}
-      has-columns"
+      has-background-white columns pl-5 pr-4 pt-4 ml-3"
       role="navigation"
       aria-label="main navigation"
     >
@@ -38,7 +38,7 @@
           href="/"
           class="navbar-item p-0 column not-underlined has-text-right"
         >
-          <h1 class="is-titillium-bold is-size-4 not-underlined has-text-grey-dark">
+          <h1 class="is-titillium-bold is-size-4 has-text-grey">
             Insert Disc
           </h1>
           <p class="is-contrail has-text-blue is-size-7">
@@ -46,51 +46,50 @@
           </p>
         </a>
       </div>
+      
 
       <div>
         <img
           class="logo pt-3"
-          src="./assets/images/InsertDiskLogo.png"
+          src="../../public/assets/images/InsertDiskLogo.png"
           alt="A picture of the Insert Disc logo: a disc that is half visible as it enters into an unseen reader"
         />
       </div>
       <div class="navbar-menu column is-justified pl-6">
         <!-- include div for buttons for music (blue), movies (pink), and games (green) all in contrial one text font 11 -->
-        <a
-          href="/music"
+        <button
           class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-blue is-justified"
         >
           music
-        </a>
+        </button>
         <span class="tab"></span>
         <span class="tab"></span>
-        <a
-          href="/movies"
+        <button
           class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-pink is-justified"
         >
           movies
-        </a>
+        </button>
         <span class="tab"></span>
         <span class="tab"></span>
-        <a
-          href="/games"
+        <button
           class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-green is-justified"
         >
           games
-        </a>
+        </button>
       </div>
 
       <div class="navbar-item column is-flex is-right">
         <!-- include div for text "Explore your favorite media, today." in dark grey or black, Contrail one font, font size 10 next to log in and sign up links (underlined and blue) -->
         <p
           class="is-contrail is-size-6 has-text-grey-dark"
-          style="margin-left: 50%"
-        >
-          <a href="/" class="has-text-blue is-underlined"> log in </a>
-
-          <span class="tab"></span>
-          <a href="/" class="has-text-blue is-underlined">sign up</a>
+          style="margin-left: 40%">
+          Explore your favorite media, today.
         </p>
+        <span class="tab"></span>
+        <button class="button dashboard-post-btn is-inline is-contrail js-modal-trigger" data-target="create-post-modal"> LOG IN &#160 or &#160 SIGN UP </button>
+
+        <button class="button dashboard-post-btn is-inline is-contrail" id="logout"> LOG OUT </button>
+        <a href="/dashboard" class="button dashboard-post-btn is-inline is-contrail"> GO TO DASHBOARD </a>
       </div>
     </nav>
 
@@ -105,7 +104,7 @@
         <a href="https://github.com/ArchieDonaho/InsertDisc">
           <img
             class="image is-64x64"
-            src="./assets/images/github-icon-transparent.png"
+            src="/assets/images/github-icon-transparent.png"
             alt="logo for GitHub, which is a cat silhouette in white, with a black background"
           />
         </a>
@@ -138,7 +137,7 @@
           <span class="tab"></span>
 
           <a
-            href="https://github.com/allygarcia152"
+            href="https://github.com/John-Pena"
             class="has-text-blue is-titillium-reg not-underlined is-xsmall is-inline"
           >John Pe&#241a</a>
         </div>
@@ -146,6 +145,69 @@
 
     </footer>
 
+  <!-- modal -->
+    <div class="modal" id="sign-in-modal">
+      <div class="modal-background">
+        <div class="modal-card sign-in-modal-card">
+          <header class="modal-card-head is-contrail is-small has-bg-lp">
+            <p class="modal-card-title has-text-white">
+              Log in or sign up today!
+            </p>
+          </header>
+          <div class="modal-card-body">
+            <form class="new-post-form" id="login-form">
+              <div>
+                <p class="is-contrail is-small">
+                  Already have an accout? Sign in here:
+                </p>
+              </div>
+              <div>
+                <label for="title is-titillium-reg">Email</label>
+                <br>
+                <input type="email" id="login-email" name="title" class="post-columns"/>
+              </div>
+              
+              <div>
+                <label for="content is-titillium-reg">Password</label>
+                <br>
+                <input type="password" class="post-columns" id="login-password" name="content"/>
+              </div>
+              <br>
+              <button type="submit" class="button is-contrail is-responsive has-text-white get-started has-bg-purple">Log In</button>
+            </form>
+            <br>
+            <form class="signup-form">
+              <div>
+                <p class="is-contrail is-small">
+                  Don't have an accout? Sign up here:
+                </p>
+              </div>
+              <div>
+                <label for="title is-titillium-reg">Add Your Email</label>
+                <br>
+                <input type="email" id="signup-email" name="title" class="post-columns"/>
+              </div>
+              
+              <div>
+                <label for="title is-titillium-reg">Create a Username</label>
+                <br>
+                <input type="text" id="signup-username" name="title" class="post-columns"/>
+              </div>
+             
+              <div>
+                <label for="content is-titillium-reg">Create a Password</label>
+                <br>
+                <input type="password" class="post-columns" id="signup-password" name="content"/>
+              </div>
+              <br>
+              <button type="submit" class="button has-bg-purple is-contrail is-responsive has-text-white get-started">Sign Up</button>
+            </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="../../public/javascript/homepage.js"></script>
   </body>
 
 </html>
