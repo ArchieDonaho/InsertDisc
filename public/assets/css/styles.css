@@ -174,3 +174,9 @@
 .games {
   color: var(--green)
 }
+
+.modal-card {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
