@@ -56,7 +56,6 @@ router.get('/music', (req, res) => {
 router.get('/music/post/:id', (req, res) => {
   Post.findOne({
     where: {
-      category: 'music',
       id: req.params.id,
     },
     attributes: [
@@ -64,7 +63,6 @@ router.get('/music/post/:id', (req, res) => {
       'title',
       'category',
       'content',
-      'user_id',
       'created_at',
       [
         sequelize.literal(
@@ -75,16 +73,26 @@ router.get('/music/post/:id', (req, res) => {
     ],
     include: [
       {
-        model: Comment,
-        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username'],
-        },
-      },
-      {
         model: User,
         attributes: ['username'],
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
+        include: [
+          {
+            model: User,
+            attributes: ['username'],
+          },
+          {
+            model: Post,
+            attributes: ['user_id'],
+            include: {
+              model: User,
+              attributes: ['username'],
+            },
+          },
+        ],
       },
     ],
   })
