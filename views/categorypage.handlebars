@@ -23,6 +23,14 @@
     </div>
   </div>
 
+  <div>
+    {{#each posts as |post|}}
+      <ul>
+        {{> post-info post}}
+      </ul>
+    {{/each}}
+  </div>
+
 </section>
 
 <div class="modal" id="create-post-modal">
