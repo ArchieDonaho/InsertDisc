@@ -56,7 +56,6 @@ router.get('/music', (req, res) => {
 router.get('/music/post/:id', (req, res) => {
   Post.findOne({
     where: {
-      category: 'music',
       id: req.params.id,
     },
     attributes: [
@@ -64,7 +63,6 @@ router.get('/music/post/:id', (req, res) => {
       'title',
       'category',
       'content',
-      'user_id',
       'created_at',
       [
         sequelize.literal(
@@ -75,16 +73,26 @@ router.get('/music/post/:id', (req, res) => {
     ],
     include: [
       {
-        model: Comment,
-        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username'],
-        },
-      },
-      {
         model: User,
         attributes: ['username'],
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
+        include: [
+          {
+            model: User,
+            attributes: ['username'],
+          },
+          {
+            model: Post,
+            attributes: ['user_id'],
+            include: {
+              model: User,
+              attributes: ['username'],
+            },
+          },
+        ],
       },
     ],
   })
@@ -156,6 +164,68 @@ router.get('/movies', (req, res) => {
     });
 });
 
+// Get route for a single post in the movies
+router.get('/movies/post/:id', (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: [
+      'id',
+      'title',
+      'category',
+      'content',
+      'created_at',
+      [
+        sequelize.literal(
+          '(SELECT COUNT(*) FROM Likes WHERE post.id = likes.post_id)'
+        ),
+        'like_count',
+      ],
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
+        include: [
+          {
+            model: User,
+            attributes: ['username'],
+          },
+          {
+            model: Post,
+            attributes: ['user_id'],
+            include: {
+              model: User,
+              attributes: ['username'],
+            },
+          },
+        ],
+      },
+    ],
+  })
+    .then((postData) => {
+      if (!postData) {
+        document.location.replace('/movies');
+      }
+      const post = postData.get({ plain: true });
+      console.log(post);
+
+      // create variables to send through for the html to dynamically load
+      const movies = 1;
+
+      res.render('single-post', { post, movies });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // Get route for Games category page
 router.get('/games', (req, res) => {
   Post.findAll({
@@ -199,6 +269,68 @@ router.get('/games', (req, res) => {
       const games = 1;
 
       res.render('categorypage', { posts, games });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// Get route for a single post in the music
+router.get('/games/post/:id', (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: [
+      'id',
+      'title',
+      'category',
+      'content',
+      'created_at',
+      [
+        sequelize.literal(
+          '(SELECT COUNT(*) FROM Likes WHERE post.id = likes.post_id)'
+        ),
+        'like_count',
+      ],
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
+        include: [
+          {
+            model: User,
+            attributes: ['username'],
+          },
+          {
+            model: Post,
+            attributes: ['user_id'],
+            include: {
+              model: User,
+              attributes: ['username'],
+            },
+          },
+        ],
+      },
+    ],
+  })
+    .then((postData) => {
+      if (!postData) {
+        document.location.replace('/games');
+      }
+      const post = postData.get({ plain: true });
+      console.log(post);
+
+      // create variables to send through for the html to dynamically load
+      const games = 1;
+
+      res.render('single-post', { post, games });
     })
     .catch((err) => {
       console.log(err);
