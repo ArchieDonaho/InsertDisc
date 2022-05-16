@@ -16,17 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Add a click event on buttons to open a specific modal
-  (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-    const modal = $trigger.dataset.target;
-    const $target = document.getElementById(modal);
+  (document.querySelectorAll('.js-modal-trigger-post') || []).forEach(
+    ($trigger) => {
+      const modal = $trigger.dataset.target;
+      const $target = document.getElementById('create-post-modal');
 
-    $trigger.addEventListener('click', () => {
-      openModal($target);
-    });
-  });
+      $trigger.addEventListener('click', () => {
+        openModal($target);
+      });
+    }
+  );
 
   // Add a click event on various child elements to close the parent modal
-  (document.querySelectorAll('.button') || []).forEach(($close) => {
+  (
+    document.querySelectorAll(
+      '.button .music-post-btn .is-xsmall .is-inline .is-contrail .js-modal-trigger-post'
+    ) || []
+  ).forEach(($close) => {
     const $target = $close.closest('.modal');
 
     $close.addEventListener('click', () => {
@@ -45,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// handle post creation
 async function newFormHandler(event) {
   event.preventDefault();
 

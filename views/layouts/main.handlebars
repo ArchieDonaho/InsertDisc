@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
     {{!-- add if for title of page ex: Instert Disc - Dashboard --}}
     <title>Insert Disc</title>
   </head>
@@ -51,31 +51,34 @@
       <div>
         <img
           class="logo pt-3"
-          src="../../public/assets/images/InsertDiskLogo.png"
+          src="/assets/images/InsertDiskLogo.png"
           alt="A picture of the Insert Disc logo: a disc that is half visible as it enters into an unseen reader"
         />
       </div>
       <div class="navbar-menu column is-justified pl-6">
         <!-- include div for buttons for music (blue), movies (pink), and games (green) all in contrial one text font 11 -->
-        <button
+        <a
+        href="/music"
           class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-blue is-justified"
         >
           music
-        </button>
+        </a>
         <span class="tab"></span>
         <span class="tab"></span>
-        <button
+        <a
+        href="/movies"
           class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-pink is-justified"
         >
           movies
-        </button>
+        </a>
         <span class="tab"></span>
         <span class="tab"></span>
-        <button
+        <a
+        href="/games"
           class="button is-contrail has-text-white has-text-centered is-size-5 has-bg-green is-justified"
         >
           games
-        </button>
+        </a>
       </div>
 
       <div class="navbar-item column is-flex is-right">
@@ -86,7 +89,7 @@
           Explore your favorite media, today.
         </p>
         <span class="tab"></span>
-        <button class="button dashboard-post-btn is-inline is-contrail js-modal-trigger" data-target="create-post-modal"> LOG IN &#160 or &#160 SIGN UP </button>
+        <button class="button dashboard-post-btn is-inline is-contrail js-modal-trigger-login" data-target="create-post-modal-login"> LOG IN &#160 or &#160 SIGN UP </button>
 
         <button class="button dashboard-post-btn is-inline is-contrail" id="logout"> LOG OUT </button>
         <a href="/dashboard" class="button dashboard-post-btn is-inline is-contrail"> GO TO DASHBOARD </a>
@@ -155,7 +158,8 @@
             </p>
           </header>
           <div class="modal-card-body">
-            <form class="new-post-form" id="login-form">
+
+            <form id="login-form" id="login-form">
               <div>
                 <p class="is-contrail is-small">
                   Already have an accout? Sign in here:
@@ -175,8 +179,12 @@
               <br>
               <button type="submit" class="button is-contrail is-responsive has-text-white get-started has-bg-purple">Log In</button>
             </form>
+
+
             <br>
-            <form class="signup-form">
+
+
+            <form id="signup-form">
               <div>
                 <p class="is-contrail is-small">
                   Don't have an accout? Sign up here:
@@ -202,12 +210,14 @@
               <br>
               <button type="submit" class="button has-bg-purple is-contrail is-responsive has-text-white get-started">Sign Up</button>
             </form>
+
+
         </div>
         </div>
       </div>
     </div>
 
-  <script src="../../public/javascript/homepage.js"></script>
+  <script src="/javascript/login.js"></script>
   </body>
 
 </html>
