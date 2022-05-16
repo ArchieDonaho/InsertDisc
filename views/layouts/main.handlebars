@@ -89,10 +89,12 @@
           Explore your favorite media, today.
         </p>
         <span class="tab"></span>
-        <button class="button dashboard-post-btn is-inline is-contrail js-modal-trigger-login" data-target="create-post-modal-login"> LOG IN &#160 or &#160 SIGN UP </button>
-
-        <button class="button dashboard-post-btn is-inline is-contrail" id="logout"> LOG OUT </button>
+        {{#if loggedIn}}
         <a href="/dashboard" class="button dashboard-post-btn is-inline is-contrail"> GO TO DASHBOARD </a>
+        <button class="button dashboard-post-btn is-inline is-contrail" id="logout"> LOG OUT </button>
+        {{else}}
+        <button class="button dashboard-post-btn is-inline is-contrail js-modal-trigger-login" data-target="create-post-modal-login"> LOG IN &#160 or &#160 SIGN UP </button>
+        {{/if}}
       </div>
     </nav>
 
