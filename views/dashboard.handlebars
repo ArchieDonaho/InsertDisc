@@ -21,9 +21,10 @@
     >
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR POSTS
-        {{#if posts.length}}
+      {{#if posts.length}}
         {{#each posts as |post|}}
         {{> post-info post}}
+        <button id="post-{{post.id}}" data-id="{{post.id}}">Delete</button>
         {{/each}}
       </p>
       {{/if}}
@@ -45,3 +46,4 @@
 
 
 </section>
+<script src="/javascript/delete-post.js"></script>
