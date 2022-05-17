@@ -14,13 +14,60 @@ router.get('/', withAuth, (req, res) => {
     where: {
       id: req.session.user_id,
     },
+    attributes: ['id', 'username'],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username'],
+        },
+      },
+      {
+        model: Post,
+        attributes: [
+          'id',
+          'title',
+          'category',
+          'content',
+          'created_at',
+          [
+            sequelize.literal(
+              '(SELECT COUNT(*) FROM Likes WHERE user.id = likes.user_id)'
+            ),
+            'like_count',
+          ],
+        ],
+        include: [
+          {
+            model: Comment,
+            attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
+            include: [
+              {
+                model: User,
+                attributes: ['username'],
+              },
+              {
+                model: Post,
+                attributes: ['user_id'],
+                include: {
+                  model: User,
+                  attributes: ['username'],
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
   })
     .then((userData) => {
       // serialize data before passing to template
-      const user = userData.map((post) => post.get({ plain: true }));
+      const user = userData.get({ plain: true });
       const dashboard = 1;
-      console.log(user);
-      res.render('dashboard', { posts, dashboard, loggedIn: true });
+      console.log(user.comments);
+      res.render('dashboard', { user, dashboard, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
