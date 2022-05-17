@@ -2,26 +2,26 @@ async function likeClickHandler(event) {
   event.preventDefault();
   console.log('click');
 
-  const id = window.location.toString().split('/')[
-    window.location.toString().split('/').length - 1
-  ];
-  const response = await fetch('/api/posts/likes', {
-    method: 'put',
-    body: JSON.stringify({
-      post_id: id
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
+  const post_id = document.querySelector('.like-btn');
 
-  if (response.ok) {
-    document.location.reload();
-  } else {
-    alert(response.statusText);
-  }
+  console.log(post_id.dataset.id)
+  // const response = await fetch('/api/posts/likes', {
+  //   method: 'put',
+  //   body: JSON.stringify({
+      
+  //   }),
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // });
+
+  // if (response.ok) {
+  //   document.location.reload();
+  // } else {
+  //   alert(response.statusText);
+  // }
 }
 
 document
-  .querySelector('#like')
+  .querySelector('.like-btn')
   .addEventListener('click', likeClickHandler);
