@@ -128,14 +128,13 @@ router.put('/:id', withAuth, (req, res) => {
 
 // delete post
 router.delete('/:id', withAuth, (req, res) => {
-  console.log('id', req.params.id);
   Post.destroy({
     where: {
       id: req.params.id,
     },
   })
     .then((postData) => {
-      if (postData) {
+      if (!postData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }

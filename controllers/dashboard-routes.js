@@ -58,6 +58,10 @@ router.get('/', withAuth, (req, res) => {
               },
             ],
           },
+          {
+            model: User,
+            attributes: ['username'],
+          },
         ],
       },
     ],
@@ -66,7 +70,7 @@ router.get('/', withAuth, (req, res) => {
       // serialize data before passing to template
       const user = userData.get({ plain: true });
       const dashboard = 1;
-      console.log(user.comments);
+      console.log(user);
       res.render('dashboard', { user, dashboard, loggedIn: true });
     })
     .catch((err) => {

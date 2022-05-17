@@ -24,7 +24,7 @@
       {{#if user.posts.length}}
         {{#each user.posts as |post|}}
         {{> post-info post}}
-        <button id="post-{{user.post.id}}" data-id="{{user.post.id}}">Delete</button>
+        <button class="post-delete-btn" data-id="post-{{post.id}}">Delete</button>
         {{/each}}
       </p>
       {{/if}}
@@ -37,6 +37,7 @@
         {{#if user.comments.length}}
         {{#each user.comments as |comment|}}
         {{> comments comment}}
+        <button class="comment-delete-btn" data-id="delete-{{comment.id}}">Delete</button>
         {{/each}}
       </p>
       {{/if}}
@@ -47,4 +48,4 @@
 
 
 </section>
-<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/delete.js"></script>
