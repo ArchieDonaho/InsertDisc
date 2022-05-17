@@ -32,8 +32,7 @@
       >{{comments.length}}</p>
     </a>
     |
-    {{!-- update to use the pushed application's url name   --}}
-    <a target="_blank" href='https://twitter.com/intent/tweet?text=Follow%20InsertDisc%20at%20InsertDisc.com/{{category}}/post/{{id}}'>
+    <a target="_blank" href='https://twitter.com/intent/tweet?url=InsertDisc.com/{{category}}/post/{{id}}&text="{{title}}"&via={{user.username}}'>
       <img
         class='image is-24x24 is-inline'
         src='/assets/images/Twitter-logo.svg.png'
