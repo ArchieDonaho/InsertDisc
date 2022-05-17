@@ -21,12 +21,17 @@ async function likeClickHandler(id, event) {
 var likeButtons = document.querySelectorAll('.like-btn');
 // console.log(likeButtons);
 const likeButtonsArray = Array.from(likeButtons);
-likeButtonsArray.map((id) => {
-  return id.dataset.id;
+
+const newArray = likeButtonsArray.map((postId) => {
+  return postId.dataset.id;
 });
 
-for (var i = 0; i < likeButtonsArray.length; i++) {
-  likeButtonsArray[i].addEventListener('click', likeClickHandler);
+console.log(newArray);
+
+for (var i = 0; i < newArray.length; i++) {
+  document
+    .querySelector(`button[data-id="${newArray[i]}"]`)
+    .addEventListener('click', likeClickHandler);
 }
 // $('.like-btn').click('button', likeClickHandler);
 
