@@ -25,11 +25,7 @@
       <div class="columns is-centered">
         {{#each user.posts as |post|}}
         {{> post-info post}}
-<<<<<<< HEAD
-        <button class="post-delete-btn" data-id="post-{{post.id}}">Delete</button>
-=======
-        <button class='button is-danger is-light column' id="post-{{user.post.id}}" data-id="{{user.post.id}}">Delete</button>
->>>>>>> 22bbb881347c2cc85bcb4e460bf77e50f2be0ef5
+        <button class='button is-danger is-light column post-delete-btn' data-id="post-{{post.id}}">Delete</button>
         {{/each}}
       </p>
       </div>
@@ -54,10 +50,4 @@
 
 
 </section>
-<<<<<<< HEAD
 <script src="/javascript/delete.js"></script>
-=======
-{{#if loggedIn}}
-<script src="/javascript/delete-post.js"></script>
-{{/if}}
->>>>>>> 22bbb881347c2cc85bcb4e460bf77e50f2be0ef5
