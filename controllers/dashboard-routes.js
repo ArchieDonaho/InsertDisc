@@ -1,53 +1,83 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, Comment } = require('../models');
+const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
-  const dashboard = 1;
-  res.render('dashboard', { dashboard });
-});
+// router.get('/', (req, res) => {
+//   const dashboard = 1;
+//   res.render('dashboard', { dashboard });
+// });
 
 // render the dashboard with all the user's posts
-// router.get('/', withAuth, (req, res) => {
-//   Post.findAll({
-//     where: {
-//       // use the ID from the session
-//       user_id: req.session.user_id,
-//     },
-//     attributes: [
-//       'id',
-//       'title',
-//       'content',
-//       'created_at',
-//       [
-//         sequelize.literal(
-//           '(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'
-//         ),
-//         'like_count',
-//       ],
-//     ],
-//     include: [
-//       {
-//         model: Comment,
-//         where: {
-//           user_id: req.session.user_id,
-//         },
-//         attributes: ['id', 'content', 'post_id', 'user_id', 'created_at'],
-//       },
-//     ],
-//   })
-//     .then((dbPostData) => {
-//       // serialize data before passing to template
-//       const posts = dbPostData.map((post) => post.get({ plain: true }));
-//       const dashboard = 1;
-//       res.render('dashboard', { posts, dashboard, loggedIn: true });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+router.get('/', withAuth, (req, res) => {
+  User.findOne({
+    where: {
+      id: req.session.user_id,
+    },
+    attributes: ['id', 'username'],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username'],
+        },
+      },
+      {
+        model: Post,
+        attributes: [
+          'id',
+          'title',
+          'category',
+          'content',
+          'created_at',
+          [
+            sequelize.literal(
+              '(SELECT COUNT(*) FROM Likes WHERE user.id = likes.user_id)'
+            ),
+            'like_count',
+          ],
+        ],
+        include: [
+          {
+            model: Comment,
+            attributes: ['id', 'content', 'user_id', 'post_id', 'created_at'],
+            include: [
+              {
+                model: User,
+                attributes: ['username'],
+              },
+              {
+                model: Post,
+                attributes: ['user_id'],
+                include: {
+                  model: User,
+                  attributes: ['username'],
+                },
+              },
+            ],
+          },
+          {
+            model: User,
+            attributes: ['username'],
+          },
+        ],
+      },
+    ],
+  })
+    .then((userData) => {
+      // serialize data before passing to template
+      const user = userData.get({ plain: true });
+      const dashboard = 1;
+      console.log(user);
+      res.render('dashboard', { user, dashboard, loggedIn: true });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // // display page to edit a post
 // router.get('/edit/:id', withAuth, (req, res) => {

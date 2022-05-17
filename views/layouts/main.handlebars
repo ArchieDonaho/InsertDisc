@@ -22,13 +22,16 @@
 
   <body>
     {{! add header }}
-    <nav
-      class="navbar 
-      {{#if dashboard }} has-bg-lp {{/if}} 
-      {{#if music}} has-bg-lb {{/if}} 
-      {{#if movies}} has-bg-lpk {{/if}}
-      {{#if games}} has-bg-lg {{/if}}
-      has-background-white columns pl-5 pr-4 pt-4 ml-3"
+    <nav 
+      {{#if dashboard }} 
+      class='has-bg-lp navbar has-background-purple columns pl-5 pr-4 pt-4 ml-3' 
+      {{else if music}} 
+      class='has-bg-lb navbar has-background-blue columns pl-5 pr-4 pt-4 ml-3' 
+      {{else if movies}} 
+      class='has-bg-lpk navbar has-background-pink columns pl-5 pr-4 pt-4 ml-3' 
+      {{else if games}} 
+      class='has-bg-lg navbar has-background-green columns pl-5 pr-4 pt-4 ml-3' 
+      {{/if}}
       role="navigation"
       aria-label="main navigation"
     >
@@ -89,10 +92,16 @@
           Explore your favorite media, today.
         </p>
         <span class="tab"></span>
+        {{#if loggedIn}}
+          {{#if dashboard}}
+          <button class="button dashboard-post-btn is-inline is-contrail" id="logout"> LOG OUT </button>
+          {{else}}
+          <a href="/dashboard" class="button dashboard-post-btn is-inline is-contrail"> GO TO DASHBOARD </a>
+          <button class="button dashboard-post-btn is-inline is-contrail" id="logout"> LOG OUT </button>
+          {{/if}}
+        {{else}}
         <button class="button dashboard-post-btn is-inline is-contrail js-modal-trigger-login" data-target="create-post-modal-login"> LOG IN &#160 or &#160 SIGN UP </button>
-
-        <button class="button dashboard-post-btn is-inline is-contrail" id="logout"> LOG OUT </button>
-        <a href="/dashboard" class="button dashboard-post-btn is-inline is-contrail"> GO TO DASHBOARD </a>
+        {{/if}}
       </div>
     </nav>
 
@@ -123,6 +132,7 @@
         <div class="column pl-0">
           <a
             href="https://github.com/ArchieDonaho"
+            target="_blank"
             class="has-text-blue is-titillium-reg not-underlined is-xsmall is-inline"
           > Archie Donaho </a>
 
@@ -132,6 +142,7 @@
 
           <a
             href="https://github.com/allygarcia152"
+            target="_blank"
             class="has-text-blue is-titillium-reg not-underlined is-xsmall is-inline"
           >Ally Garcia</a>
 
@@ -141,6 +152,7 @@
 
           <a
             href="https://github.com/John-Pena"
+            target="_blank"
             class="has-text-blue is-titillium-reg not-underlined is-xsmall is-inline"
           >John Pe&#241a</a>
         </div>
@@ -217,7 +229,12 @@
       </div>
     </div>
 
-  <script src="/javascript/login.js"></script>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{else}}
+<script src="/javascript/login.js"></script>
+{{/if}}
+  
   </body>
 
 </html>

@@ -1,4 +1,4 @@
-<section class="section is-medium main-section p-3 has-background-white">
+<section class="section is-medium p-3 has-background-white">
   <div class="columns is-centered">
     <div class="column is-10 my-3">
       <p
@@ -9,7 +9,7 @@
 
       <p class="is-contrail is-inline is-xsmall has-text-grey">
         &#160
-        {{username}}
+        {{user.username}}
       </p>
     </div>
   </div>
@@ -21,12 +21,14 @@
     >
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR POSTS
-      {{#if posts.length}}
-        {{#each posts as |post|}}
+      {{#if user.posts.length}}
+      <div class="columns is-centered">
+        {{#each user.posts as |post|}}
         {{> post-info post}}
-        <button id="post-{{post.id}}" data-id="{{post.id}}">Delete</button>
+        <button class='button is-danger is-light column post-delete-btn' data-id="post-{{post.id}}">Delete</button>
         {{/each}}
       </p>
+      </div>
       {{/if}}
     </div>
 
@@ -34,9 +36,10 @@
     <div class="column is-two-fifths post-columns has-background-grey-lighter">
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR COMMENTS
-        {{#if comments.length}}
-        {{#each comments as |comment|}}
+        {{#if user.comments.length}}
+        {{#each user.comments as |comment|}}
         {{> comments comment}}
+        <button class="comment-delete-btn" data-id="delete-{{comment.id}}">Delete</button>
         {{/each}}
       </p>
       {{/if}}
@@ -45,5 +48,6 @@
   </div>
 
 
+
 </section>
-<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/delete.js"></script>

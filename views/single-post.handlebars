@@ -1,6 +1,24 @@
+{{#if loggedIn}}
+<form id="comment-form">
+    <label for="content is-titillium-reg">Add a comment</label>
+    <br />
+    <textarea
+      class="textarea music-post"
+      id="comment-content"
+      name="comment-content"
+      placeholder="What's on your mind?"
+    ></textarea>
+  </div>
+  <br />
+  <button
+    type="submit"
+    class="button has-bg-blue is-contrail is-responsive has-text-white get-started"
+  >Reply</button>
+</form>
+{{/if}}
+
 <article class='post music-post column has-background-white m-3'>
   <div class='post-title'>
-    <a href='/' target='_blank'>
       <p class='is-inline is-titillium-reg is-small movies is-underlined'>
         {{post.title}}
       </p>
@@ -8,24 +26,27 @@
         &#160 @{{post.user.username}}
         {{format_date post.created_at}}
       </p>
-    </a>
-    <span></span>
   </div>
 
   <div class='post-content'>
     <p class='is-titillium-reg is-xsmall has-text-black'>
       {{post.content}}
     </p>
-  </div>
-    {{!update to use the pushed application's url name  }}
-    {{! <a href=''>
+  </div> 
+  <div class='meta'>
+    <button class='material-symbols-rounded moives like-btn' data-id="{{post.id}}">
+      thumb_up
+    </button>
+    <p class='is-inline is-titillium-reg is-xsmall'>{{post.like_count}}</p>
+    |
+    <a target="_blank" href='https://twitter.com/intent/tweet?url=InsertDisc.com/{{post.category}}/post/{{post.id}}&text="{{post.title}}"&via={{post.user.username}}'>
       <img
         class='image is-24x24 is-inline'
-        src='/assets/Twitter-logo.svg.png'
+        src='/assets/images/Twitter-logo.svg.png'
       />
-    </a> }}
   </div>
 </article>
+
   <div>
     {{#each post.comments as |comment|}}
       <ul>
@@ -33,3 +54,7 @@
       </ul>
     {{/each}}
   </div>
+  {{#if loggedIn}}
+<script src="/javascript/add-comment.js"></script>
+<script src="/javascript/like.js"></script>
+{{/if}}
