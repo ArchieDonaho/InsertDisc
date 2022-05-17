@@ -89,6 +89,7 @@ router.post('/', withAuth, (req, res) => {
 
 // like a post
 router.put('/likes', withAuth, (req, res) => {
+  console.log(req.body);
   Post.like(
     { ...req.body, user_id: req.session.user_id },
     { Likes, Comment, User }
