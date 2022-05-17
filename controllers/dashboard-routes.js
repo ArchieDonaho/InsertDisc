@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, Comment } = require('../models');
+const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // router.get('/', (req, res) => {
@@ -10,37 +10,16 @@ const withAuth = require('../utils/auth');
 
 // render the dashboard with all the user's posts
 router.get('/', withAuth, (req, res) => {
-  Post.findAll({
+  User.findOne({
     where: {
-      // use the ID from the session
-      user_id: req.session.user_id,
+      id: req.session.user_id,
     },
-    attributes: [
-      'id',
-      'title',
-      'content',
-      'created_at',
-      [
-        sequelize.literal(
-          '(SELECT COUNT(*) FROM Likes WHERE post.id = likes.post_id)'
-        ),
-        'like_count',
-      ],
-    ],
-    include: [
-      {
-        model: Comment,
-        where: {
-          user_id: req.session.user_id,
-        },
-        attributes: ['id', 'content', 'post_id', 'user_id', 'created_at'],
-      },
-    ],
   })
-    .then((dbPostData) => {
+    .then((userData) => {
       // serialize data before passing to template
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      const user = userData.map((post) => post.get({ plain: true }));
       const dashboard = 1;
+      console.log(user);
       res.render('dashboard', { posts, dashboard, loggedIn: true });
     })
     .catch((err) => {
