@@ -6,7 +6,7 @@ const sequelize = require('../config/connection');
 class Post extends Model {
   // define the like feature
   static like(body, models) {
-    return models.Like.create({
+    return models.Likes.create({
       user_id: body.user_id,
       post_id: body.post_id,
     }).then(() => {
