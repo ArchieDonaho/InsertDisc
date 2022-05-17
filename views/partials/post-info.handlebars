@@ -18,7 +18,6 @@
   </div>
 
   <div class='meta'>
-    {{#if loggedIn}}
     <button class='material-symbols-rounded moives like-btn' data-id="{{id}}">
       thumb_up
     </button>
@@ -32,13 +31,13 @@
         class='is-inline is-titillium-reg is-xsmall has-text-grey-dark'
       >{{comments.length}}</p>
     </a>
-    {{/if}}
-    {{!update to use the pushed application's url name  }}
-    {{! <a href=''>
+    |
+    {{!-- update to use the pushed application's url name   --}}
+    <a target="_blank" href='https://twitter.com/intent/tweet?text=Follow%20InsertDisc%20at%20InsertDisc.com/{{category}}/post/{{id}}'>
       <img
         class='image is-24x24 is-inline'
-        src='/assets/Twitter-logo.svg.png'
+        src='/assets/images/Twitter-logo.svg.png'
       />
-    </a> }}
+    </a>
   </div>
 </article>

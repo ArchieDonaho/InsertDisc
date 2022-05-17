@@ -1,19 +1,21 @@
+{{#if loggedIn}}
 <form id="comment-form">
-            <label for="content is-titillium-reg">Add a comment</label>
-            <br />
-            <textarea
-              class="textarea music-post"
-              id="comment-content"
-              name="comment-content"
-              placeholder="What's on your mind?"
-            ></textarea>
-          </div>
-          <br />
-          <button
-            type="submit"
-            class="button has-bg-blue is-contrail is-responsive has-text-white get-started"
-          >Reply</button>
-        </form>
+    <label for="content is-titillium-reg">Add a comment</label>
+    <br />
+    <textarea
+      class="textarea music-post"
+      id="comment-content"
+      name="comment-content"
+      placeholder="What's on your mind?"
+    ></textarea>
+  </div>
+  <br />
+  <button
+    type="submit"
+    class="button has-bg-blue is-contrail is-responsive has-text-white get-started"
+  >Reply</button>
+</form>
+{{/if}}
 
 <article class='post music-post column has-background-white m-3'>
   <div class='post-title'>
@@ -33,13 +35,13 @@
       {{post.content}}
     </p>
   </div>
-    {{!update to use the pushed application's url name  }}
-    {{! <a href=''>
+    {{!-- update to use the pushed application's url name   --}}
+    <a href=''>
       <img
         class='image is-24x24 is-inline'
         src='/assets/Twitter-logo.svg.png'
       />
-    </a> }}
+    </a> 
   </div>
 </article>
   <div>
