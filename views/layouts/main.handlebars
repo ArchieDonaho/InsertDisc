@@ -22,13 +22,10 @@
 
   <body>
     {{! add header }}
-    <nav 
-      class="navbar 
-      {{#if dashboard }} has-bg-lp {{/if}} 
-      {{#if music}} has-bg-lb {{/if}} 
-      {{#if movies}} has-bg-lpk {{/if}}
-      {{#if games}} has-bg-lg {{/if}}
-      has-background-white columns pl-5 pr-4 pt-4 ml-3"
+    <nav {{#if dashboard }} class='has-bg-lp navbar has-background-white columns pl-5 pr-4 pt-4 ml-3' {{/if}} 
+      {{#if music}} class='has-bg-lb navbar has-background-white columns pl-5 pr-4 pt-4 ml-3' {{/if}} 
+      {{#if movies}} class='has-bg-lpk navbar has-background-white columns pl-5 pr-4 pt-4 ml-3' {{/if}}
+      {{#if games}} class='has-bg-lg navbar has-background-white columns pl-5 pr-4 pt-4 ml-3' {{/if}}
       role="navigation"
       aria-label="main navigation"
     >

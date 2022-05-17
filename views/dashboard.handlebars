@@ -1,4 +1,4 @@
-<section class="section is-medium main-section p-3 has-background-white">
+<section class="section is-medium p-3 has-background-white">
   <div class="columns is-centered">
     <div class="column is-10 my-3">
       <p
@@ -22,11 +22,17 @@
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR POSTS
       {{#if user.posts.length}}
+      <div class="columns is-centered">
         {{#each user.posts as |post|}}
         {{> post-info post}}
+<<<<<<< HEAD
         <button class="post-delete-btn" data-id="post-{{post.id}}">Delete</button>
+=======
+        <button class='button is-danger is-light column' id="post-{{user.post.id}}" data-id="{{user.post.id}}">Delete</button>
+>>>>>>> 22bbb881347c2cc85bcb4e460bf77e50f2be0ef5
         {{/each}}
       </p>
+      </div>
       {{/if}}
     </div>
 
@@ -48,4 +54,10 @@
 
 
 </section>
+<<<<<<< HEAD
 <script src="/javascript/delete.js"></script>
+=======
+{{#if loggedIn}}
+<script src="/javascript/delete-post.js"></script>
+{{/if}}
+>>>>>>> 22bbb881347c2cc85bcb4e460bf77e50f2be0ef5
