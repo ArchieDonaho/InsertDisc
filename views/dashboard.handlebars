@@ -2,7 +2,7 @@
   <div class="columns is-centered">
     <div class="column is-10 my-3">
       <p
-        class="has-bg-purple is-titillium-bold is-small is-inline has-text-black"
+        class="has-bg-purple is-titillium-bold is-medium is-inline has-text-black"
       >
         &#160 YOUR PROFILE &#160
       </p>
@@ -21,19 +21,22 @@
     >
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR POSTS
-      {{#if user.posts.length}}
-      <div class="columns is-centered">
-        {{#each user.posts as |post|}}
-        {{> post-info post}}
-        <button class='button is-danger is-light column post-delete-btn' data-id="post-{{post.id}}">Delete</button>
-        {{/each}}
       </p>
+      <div>
+       {{#if user.posts.length}}
+        {{#each user.posts as |post|}}
+        <ul>
+        {{> post-info post}}
+        <div class="column">
+        <button class='button is-danger is-light post-delete-btn' data-id="post-{{post.id}}">Delete</button></div>
+        </ul>
+        {{/each}}
       </div>
       {{/if}}
     </div>
 
 
-    <div class="column is-two-fifths post-columns has-background-grey-lighter">
+    <div class="column is-two-fifths post-columns has-background-grey-lighter is-desktop">
       <p class="is-titillium-bold has-text-purple has-text-centered">
         YOUR COMMENTS
         {{#if user.comments.length}}

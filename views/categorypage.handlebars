@@ -36,14 +36,7 @@
     </div>
   </div>
 
-  <div class="columns is-centered">
-    <div class="column is-10">
-      {{!-- {{posts}}     --}}
-
-    </div>
-  </div>
-
-  <div>
+  <div class="columns is centered">
     {{#each posts as |post|}}
       <ul>
         {{> post-info post}}
@@ -56,7 +49,13 @@
 <div class="modal" id="create-post-modal">
   <div class="modal-background">
     <div class="modal-card">
-      <header class="modal-card-head is-contrail is-small has-bg-blue">
+      <header {{#if music}} class="modal-card-head is-contrail is-small has-bg-blue"
+      {{else if movies}}
+      class="modal-card-head is-contrail is-small has-bg-pink"
+      {{else if games}}
+      class="modal-card-head is-contrail is-small has-bg-green"
+      {{/if}}
+      >
         <p class="modal-card-title has-text-white">
           Create a Post!
         </p>
@@ -66,14 +65,26 @@
           <div>
             <label for="title is-titillium-reg">Title</label>
             <br />
-            <input type="text" id="title" name="title" class="music-post" />
+            <input type="text" id="title" name="title" 
+            {{#if music}}
+            class="music-post"
+            {{else if movies}} class="movies-post"
+            {{else if games}}
+            class="games-post"
+            {{/if}}
+             />
           </div>
           <br />
           <div>
             <label for="content is-titillium-reg">Content</label>
             <br />
             <textarea
+              {{#if music}}
               class="textarea music-post"
+              {{else if movies}} class="textarea movies-post"
+              {{else if games}}
+              class="textarea games-post"
+              {{/if}}
               id="content"
               name="content"
               placeholder="What's on your mind?"
@@ -82,7 +93,12 @@
           <br />
           <button
             type="submit"
+            {{#if music}}
             class="button has-bg-blue is-contrail is-responsive has-text-white get-started"
+            {{else if movies}} class="button has-bg-pink is-contrail is-responsive has-text-white get-started"
+            {{else if games}}
+            class="button has-bg-green is-contrail is-responsive has-text-white get-started"
+            {{/if}}
           >Create</button>
         </form>
       </div>
