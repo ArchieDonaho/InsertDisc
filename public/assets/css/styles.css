@@ -83,7 +83,7 @@
 
 .main-section {
   background: url(../images/main-bg.jpg);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
   min-height: 80%;
@@ -260,10 +260,10 @@
     flex: auto;
     margin-right: 0px;
   }
-  
+
   .post-columns {
     width: 80%;
-    margin-left:10%;
+    margin-left: 10%;
     margin-bottom: 20px;
   }
 }
@@ -289,7 +289,7 @@
     left: 585px;
     height: 200px;
   }
-  
+
   .main-section {
     background-size: 140%;
   }
@@ -305,12 +305,23 @@
   }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 680px) {
   .movie-poster,
   .album-cover,
   .game-cover {
     visibility: hidden;
+    top: 0px;
+    left: 0px;
   }
+  .main-section {
+    background-size: 230%;
+  }
+  .nav-btns {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 575px) {
   .btn-div {
     padding-left: 3px;
   }
@@ -337,8 +348,5 @@
   .i-space {
     visibility: hidden;
     font-size: 0px;
-  }
-  body {
-    width: 100%;
   }
 }
