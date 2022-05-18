@@ -22,7 +22,7 @@
 
   <body>
     {{! add header }}
-    <nav class='has-background-white navbar columns pl-5 pr-4 pt-4 is-mobile'
+    <nav 
       {{#if dashboard }} 
       class='has-bg-lp navbar has-background-purple columns pl-5 pr-4 pt-4 ml-3' 
       {{else if music}} 
@@ -31,6 +31,8 @@
       class='has-bg-lpk navbar has-background-pink columns pl-5 pr-4 pt-4 ml-3' 
       {{else if games}} 
       class='has-bg-lg navbar has-background-green columns pl-5 pr-4 pt-4 ml-3' 
+      {{else}}
+      class='has-background-white navbar columns pl-5 pr-4 pt-4 is-mobile'
       {{/if}}
       role="navigation"
       aria-label="main navigation"
