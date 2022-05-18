@@ -23,8 +23,7 @@ const sess = {
   secret: process.env.SECRET,
   cookie: {
     // session expires after 10 minutes of inactivity
-    // TODO: uncomment this once we have a working login/logout/session functionality
-    // expires: 600000,
+    expires: 600000,
   },
   resave: false,
   saveUninitialized: true,
