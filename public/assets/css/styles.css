@@ -11,16 +11,16 @@
 }
 
 .is-contrail {
-  font-family: 'Contrail One', cursive;
+  font-family: "Contrail One", cursive;
 }
 
 .is-titillium-bold {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
   font-weight: 900;
 }
 
 .is-titillium-reg {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
   font-weight: 400;
 }
 
@@ -65,19 +65,31 @@
   margin-left: 10px;
 }
 
+.nav-btn,
+.nav-btns {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.letter-i {
+  font-size: 60px;
+  text-align: right;
+}
+
 .not-underlined {
   text-decoration: none;
 }
 
 .main-section {
   background: url(../images/main-bg.jpg);
-  /* background-attachment: fixed; */
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
   background-position: center;
   background-size: 100%;
+  min-height: 80%;
 }
 
-.jumbo {
+.hero-text {
   font-size: 90px;
 }
 
@@ -103,23 +115,23 @@
 }
 
 .movie-poster {
-  position: relative;
-  top: 70px;
-  left: -100px;
+  position: absolute;
+  top: 150px;
+  left: 1100px;
   height: 350px;
 }
 
 .album-cover {
-  position: relative;
-  top: -60px;
-  left: 100px;
+  position: absolute;
+  top: 300px;
+  left: 1300px;
   height: 275px;
 }
 
 .game-cover {
-  position: relative;
-  top: -180px;
-  left: 320px;
+  position: absolute;
+  top: 425px;
+  left: 1550px;
   height: 330px;
 }
 
@@ -134,6 +146,7 @@
 .dashboard-post-btn {
   background-color: white;
   border: 1px solid var(--purple);
+  align-self: flex-end;
 }
 
 .dashboard-post-btn:hover {
@@ -184,4 +197,148 @@
   position: absolute;
   top: 20%;
   left: 30%;
+}
+
+@media screen and (max-width: 1450px) {
+  .movie-poster {
+    position: absolute;
+    top: 140px;
+    left: 800px;
+    height: 300px;
+  }
+
+  .album-cover {
+    position: absolute;
+    top: 300px;
+    left: 960px;
+    height: 250px;
+  }
+
+  .game-cover {
+    position: absolute;
+    top: 410px;
+    left: 1180px;
+    height: 290px;
+  }
+  .main-section {
+    min-height: 80%;
+  }
+  .nav-btns {
+    margin-left: 5px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .movie-poster {
+    position: absolute;
+    top: 210px;
+    left: 580px;
+    height: 250px;
+  }
+
+  .album-cover {
+    position: absolute;
+    top: 410px;
+    left: 690px;
+    height: 180px;
+  }
+
+  .game-cover {
+    position: absolute;
+    top: 550px;
+    left: 785px;
+    height: 240px;
+  }
+  .main-section {
+    background-size: 110%;
+  }
+
+  .post-columns {
+    align-self: center;
+    flex-wrap: wrap;
+    flex: auto;
+    margin-right: 0px;
+  }
+  
+  .post-columns {
+    width: 80%;
+    margin-left:10%;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie-poster {
+    position: absolute;
+    top: 200px;
+    left: 460px;
+    height: 200px;
+  }
+
+  .album-cover {
+    position: absolute;
+    top: 370px;
+    left: 520px;
+    height: 155px;
+  }
+
+  .game-cover {
+    position: absolute;
+    top: 500px;
+    left: 585px;
+    height: 200px;
+  }
+  
+  .main-section {
+    background-size: 140%;
+  }
+  .hero-text {
+    font-size: 65px;
+  }
+  .hero-text-bottom {
+    font-size: 35px;
+  }
+
+  .nav-btns {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .movie-poster,
+  .album-cover,
+  .game-cover {
+    visibility: hidden;
+  }
+  .btn-div {
+    padding-left: 3px;
+  }
+  .hero-text {
+    font-size: 50px;
+  }
+  .hero-text-bottom {
+    font-size: 30px;
+  }
+  .nav-btn {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  .nav-btns {
+    font-size: 13px;
+    margin-left: 5px;
+  }
+  .main-section {
+    background-size: 200%;
+  }
+  .letter-i {
+    font-size: 60px;
+  }
+  .i-space {
+    visibility: hidden;
+    font-size: 0px;
+  }
+  body {
+    width: 100%;
+  }
 }
